@@ -1,0 +1,126 @@
+{
+  "theme": {
+    "mode": "dark",
+    "rationale": "A professional quant-finance terminal demands a dark, high-contrast environment to reduce eye strain during prolonged data analysis. The aesthetic is 'Bloomberg terminal meets modern SaaS', heavily utilizing 'Grid Borders' and 'Retro-Futurism' micro-themes (specifically terminal-like data density without the cyberpunk kitsch)."
+  },
+  "colors": {
+    "background": {
+      "default": "#050505",
+      "surface": "#121212",
+      "surface_hover": "#1E1E1E"
+    },
+    "text": {
+      "primary": "#FFFFFF",
+      "secondary": "#A1A1AA",
+      "muted": "#71717A"
+    },
+    "signals": {
+      "buy_positive": "#10B981",
+      "sell_negative": "#EF4444",
+      "hold_neutral": "#EAB308"
+    },
+    "accents": {
+      "primary": "#2563EB",
+      "chart_blue": "#3B82F6",
+      "chart_purple": "#8B5CF6",
+      "chart_cyan": "#06B6D4"
+    },
+    "borders": {
+      "default": "#27272A",
+      "focus": "#3B82F6"
+    }
+  },
+  "typography": {
+    "font_families": {
+      "headings": "Chivo, IBM Plex Sans, sans-serif",
+      "body": "IBM Plex Sans, sans-serif",
+      "monospace": "JetBrains Mono, IBM Plex Mono, monospace"
+    },
+    "rules": {
+      "headings": "Use tight tracking (tracking-tight) for all headings. Never use Inter or generic sans for headings.",
+      "numbers": "ALL financial data, ticker symbols, prices, equations, and tabular data MUST use JetBrains Mono to ensure tabular lining and vertical alignment of decimals.",
+      "labels": "Overlines and table headers should be uppercase, text-[10px] to text-xs, tracking-widest, text-zinc-400."
+    },
+    "hierarchy": {
+      "h1": "text-2xl sm:text-3xl font-bold tracking-tight",
+      "h2": "text-lg sm:text-xl font-semibold",
+      "h3": "text-base font-medium",
+      "body": "text-sm",
+      "data_large": "text-2xl sm:text-3xl font-mono",
+      "data_standard": "text-sm font-mono",
+      "data_small": "text-xs font-mono"
+    }
+  },
+  "layout_and_spacing": {
+    "strategy": "High Density Grid Protocol",
+    "rules": [
+      "Use tight gaps (gap-4 or gap-px with border-collapse) for data correlations and scanability.",
+      "Eliminate unnecessary padding. Use p-4 for standard widgets, p-2 for dense lists.",
+      "Use grid layout extensively. Expose the skeleton using the 'Grid Borders' surface strategy (1px border-border/40 on grid items).",
+      "Dashboards should consume the full width (max-w-full or max-w-[1920px]). No standard narrow containers.",
+      "Grid items must be direct children of the grid container to prevent subgrid breaking."
+    ],
+    "surface_strategy": "Grid Borders (Technical Look). Expose the grid layout with 1px hard borders and no shadows. Flat solid backgrounds. Sharp edges (rounded-none or maximum rounded-sm). No glassmorphism on the main data panels to avoid visual refraction of critical numbers."
+  },
+  "components": {
+    "tables": {
+      "style": "Highly dense. Use JetBrains Mono for all cell data. Right-align all numeric columns. Use conditional text colors (signals.buy_positive/sell_negative) for returns and signals. Sticky header.",
+      "shadcn_customization": "Override default Shadcn Table padding to be tighter (py-2 px-3). Remove rounded corners."
+    },
+    "cards": {
+      "style": "Cardless or Technical Borders. 1px solid border (#27272A), completely flat background (#121212), zero shadow, sharp corners (rounded-none or rounded-sm)."
+    },
+    "buttons": {
+      "style": "Tactile and functional. Primary buttons use the accent blue (#2563EB). Signal action buttons (Buy/Sell) must use solid green/red. Sharp corners. Use specific transition styles for hover states."
+    },
+    "charts": {
+      "libraries": ["recharts", "d3 (for complex Monte Carlo fan charts)"],
+      "style": "Dark background (#050505), hide standard grid lines or make them extremely subtle (stroke: #27272A, strokeDasharray: '3 3'). Data lines must be neon/high-contrast with a subtle drop-shadow (blur-sm) to simulate a glowing terminal effect.",
+      "monte_carlo": "For Monte Carlo fan charts, use stacked Recharts Area elements with decreasing opacities (e.g., fill: #3B82F6, fillOpacity: 0.1 to 0.4) to represent confidence intervals."
+    },
+    "navigation": {
+      "style": "Left sidebar or highly compact top-bar. Solid background (#050505) with 1px border. Links should be subtle, turning pure white on active state."
+    }
+  },
+  "motion": {
+    "rules": [
+      "Minimalist and snappy. No bouncy animations.",
+      "Use micro-interactions for feedback (e.g., hover states on table rows with extremely fast transitions: transition-colors duration-75).",
+      "Chart rendering should have a fast entrance animation (e.g., Recharts default ease-in).",
+      "Respect prefers-reduced-motion."
+    ]
+  },
+  "icons_and_media": {
+    "icons": {
+      "library": "lucide-react",
+      "style": "Stroke width 1.5. Keep sizes small (14px to 16px) to match the dense data aesthetic.",
+      "install_command": "yarn add lucide-react"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODh8MHwxfHNlYXJjaHwxfHxzdG9jayUyMG1hcmtldCUyMHRyYWRpbmclMjBkZXNrfGVufDB8fHx8MTc4NjI5MjU1M3ww&ixlib=rb-4.1.0&q=85",
+        "description": "Screen showing bitcoin trading chart",
+        "category": "authentication_background",
+        "usage": "Use as a dark, lowered-opacity background image for the login/auth screen or a landing/welcome page. Overlay with bg-black/80."
+      }
+    ]
+  },
+  "accessibility": {
+    "contrast": "Maintain WCAG AA (4.5:1) minimum. Dark theme text uses pure white (#FFFFFF) against #121212 surface for maximum clarity.",
+    "focus": "All interactive elements must have focus:ring-1 focus:ring-blue-500 focus:outline-none.",
+    "testing": "All interactive and key informational elements MUST include a `data-testid` attribute (e.g., data-testid='buy-signal-button', data-testid='stock-price-display')."
+  },
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "You tend to converge toward generic, 'on distribution' outputs. Avoid the 'AI slop' aesthetic. Create a distinctive, high-end professional quant terminal.",
+    "All implementations MUST use standard React .js files, NOT .tsx files. Follow vanilla JS semantics and PropTypes where necessary.",
+    "DO NOT use Inter or standard sans-serifs for headings. You must use Chivo or IBM Plex Sans for headings, and JetBrains Mono for all numeric/tabular data.",
+    "DO NOT use generic centered layouts. Use highly dense, data-driven grids. Align numbers right, text left.",
+    "DO NOT use gradients for surfaces. Use flat, dark colors with 1px crisp borders.",
+    "Never use AI assistant emoji characters for icons. Use Lucide icons.",
+    "DO NOT use complete transparent backgrounds for the header, sidebar, or dropdowns. They must have a solid dark background (#050505 or #121212).",
+    "All data metrics MUST use the monospace font to ensure decimal points align vertically. Use consistent decimal places (e.g., 2 decimal places for prices).",
+    "Use 'sonner' for toasts.",
+    "Apply precise text colors (Green/Red) to positive/negative values and signals to build immediate visual correlations.",
+    "Implement the AI quant analyst summary using formatted monospace blocks for mathematical equations to maintain the terminal aesthetic."
+  ]
+}
